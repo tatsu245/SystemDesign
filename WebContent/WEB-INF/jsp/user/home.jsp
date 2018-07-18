@@ -9,7 +9,7 @@
 <body>
 <!-- ナビゲーションバー -->
 <nav class="navbar navbar-dark bg-dark">
-		<a class="navbar-brand" href="/hazelabBBS/bbs">HazeLabBBS</a>
+		<a class="navbar-brand" href="/tt_match_manager/">tt_match_manager</a>
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 		</ul>
 </nav>
