@@ -14,7 +14,7 @@
 	<!-- コンテンツ -->
 	<div class="container">
 		<h1 class="page-header">ログイン</h1>
-		<form action="/hazelabBBS/login" method="post">
+		<form action="/tt_match_manager/login" method="post">
 			<div class="form-group">
 				<label for="userId">ユーザー名</label> <input class="form-control"
 					type="text" name="userId" id="userId">

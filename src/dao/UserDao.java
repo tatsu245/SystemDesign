@@ -24,6 +24,7 @@ public class UserDao extends DriverAccsessor{
 			user.setUser_name(rSet.getString("user_name"));
 			user.setPassword(rSet.getString("password"));
 			user.setUser_id(rSet.getString("user_id"));
+			user.setStudent_number(rSet.getString("student_number"));
 
 			statement.close();
 			rSet.close();
@@ -37,13 +38,14 @@ public class UserDao extends DriverAccsessor{
 
 	public void create(User user,Connection connection) {
 		try {
-			String sql = "insert into users(user_id,user_name,password) values (?,?,?)";
+			String sql = "insert into users(user_id,user_name,password,student_number) values (?,?,?,?)";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 
 			statement.setString(1, user.getUser_id());
 			statement.setString(2, user.getUser_name());
 			statement.setString(3, user.getPassword());
+			statement.setString(4, user.getStudent_number());
 			statement.executeUpdate();
 			statement.close();
 		} catch (SQLException e) {

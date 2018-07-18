@@ -33,10 +33,12 @@ public class CreateUserServlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String userId = request.getParameter("userId");
 		String password = request.getParameter("password");
+		String studentNumber = request.getParameter("studentNumber");
 		User user = new User();
 		user.setUser_name(userName);
 		user.setUser_id(userId);
 		user.setPassword(password);
+		user.setStudent_number(studentNumber);
 		UserService userService = new UserService();
 		userService.createUser(user);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
