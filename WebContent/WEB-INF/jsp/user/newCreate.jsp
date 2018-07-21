@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>newCreate</title>
+</head>
+<body>
+	<!-- ナビゲーションバー -->
+	<nav class="navbar navbar-dark bg-dark"> <a class="navbar-brand"
+		href="/tt_match_manager/">tt_match_manager</a>
+	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	</ul>
+	</nav>
+	<br>
+	<!-- コンテンツ -->
+	<div class="container">
+		<h2>新規ユーザー登録</h2>
+		<hr>
+		<form action="/tt_match_manager/user" method="post">
+			<div class="form-group">
+				<label for="userName">名前</label> <input class="form-control"
+					type="text" name="userName" id="userName">
+			</div>
+			<div class="form-group">
+				<label for="userId">ユーザーID</label> <input class="form-control"
+					type="text" name="userId" id="userId">
+			</div>
+			<div class="form-group">
+				<div class="form-group">
+					<label for="password">学籍番号</label> <input class="form-control"
+						type="text" name="studentNumber" id="studentNumber">
+				</div>
+				<div class="form-group">
+					<label for="password">パスワード</label> <input class="form-control"
+						type="password" name="password" id="password">
+				</div>
+				<button type="submit" class="btn btn-primary">登録</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

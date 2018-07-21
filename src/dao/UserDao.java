@@ -12,7 +12,7 @@ public class UserDao extends DriverAccsessor{
 
 	public User findOne(String userId,Connection connection) {
 		try {
-			String sql = "select * from users where user_id = ?";
+			String sql = "select * from User where user_id = ?";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, userId);
@@ -21,10 +21,10 @@ public class UserDao extends DriverAccsessor{
 			rSet.first();
 
 			User user = new User();
-			user.setUser_name(rSet.getString("user_name"));
-			user.setPassword(rSet.getString("password"));
 			user.setUser_id(rSet.getString("user_id"));
+			user.setUser_name(rSet.getString("user_name"));
 			user.setStudent_number(rSet.getString("student_number"));
+			user.setPassword(rSet.getString("password"));
 
 			statement.close();
 			rSet.close();
@@ -38,14 +38,14 @@ public class UserDao extends DriverAccsessor{
 
 	public void create(User user,Connection connection) {
 		try {
-			String sql = "insert into users(user_id,user_name,password,student_number) values (?,?,?,?)";
+			String sql = "insert into User(user_id,user_name,student_number,password) values (?,?,?,?)";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 
 			statement.setString(1, user.getUser_id());
 			statement.setString(2, user.getUser_name());
-			statement.setString(3, user.getPassword());
-			statement.setString(4, user.getStudent_number());
+			statement.setString(3, user.getStudent_number());
+			statement.setString(4, user.getPassword());
 			statement.executeUpdate();
 			statement.close();
 		} catch (SQLException e) {

@@ -41,8 +41,11 @@ public class LoginServlet extends HttpServlet {
 		}else {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			response.sendRedirect("/tt_match_manager/menu.jsp");
+
+			//redirectとforwardには違いがある
+//			response.sendRedirect("/tt_match_manager/jsp/menu.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/menu.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
-
 }

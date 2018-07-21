@@ -24,7 +24,7 @@ public class CreateUserServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user/home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user/newCreate.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -32,13 +32,13 @@ public class CreateUserServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userName = request.getParameter("userName");
 		String userId = request.getParameter("userId");
-		String password = request.getParameter("password");
 		String studentNumber = request.getParameter("studentNumber");
+		String password = request.getParameter("password");
 		User user = new User();
 		user.setUser_name(userName);
 		user.setUser_id(userId);
-		user.setPassword(password);
 		user.setStudent_number(studentNumber);
+		user.setPassword(password);
 		UserService userService = new UserService();
 		userService.createUser(user);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");

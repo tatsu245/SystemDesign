@@ -16,7 +16,7 @@
 		<h1 class="page-header">ログイン</h1>
 		<form action="/tt_match_manager/login" method="post">
 			<div class="form-group">
-				<label for="userId">ユーザー名</label> <input class="form-control"
+				<label for="userId">ユーザーID</label> <input class="form-control"
 					type="text" name="userId" id="userId">
 			</div>
 			<div class="form-group">
