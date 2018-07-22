@@ -17,7 +17,7 @@
 	<h1 class="page-header">Welcome to tt_match_manager</h1>
 	<p class="lead">ようこそ，卓球戦績管理システムへ</p>
 	<br>
-	<a href="/tt_match_manager/login" class="btn btn-primary" >Get Strat</a>
+	<a href="/tt_match_manager/login" class="btn btn-primary" >Get Start</a>
 </div>
 
 </body>

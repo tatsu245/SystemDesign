@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>resultSerch</title>
+<title>tournamentRegister</title>
 </head>
 <body>
 <!-- ナビゲーションバー -->
@@ -16,25 +16,35 @@
 	<br>
 	<!-- コンテンツ -->
 	<div class="container">
-		<h2>試合結果検索</h2>
+		<h2>大会登録</h2>
 		<hr>
-		<form action="/tt_match_manager/result/search" method="post">
-		<div class="form-group">
-				<label for="playerName">選手名</label> <input class="form-control"
-					type="text" name="playerName" id="playerName">
-			</div>
-
+		<form action="/tt_match_manager/tournament/register" method="post">
 			<div class="form-group">
 				<label for="tournamentName">大会名</label> <input class="form-control"
 					type="text" name="tournamentName" id="tournamentName">
 			</div>
 
 			<div class="form-group">
-				<label for="opponentName">対戦相手</label> <input class="form-control"
-					type="text" name="opponentName" id="opponentName">
+				<label for="startDate">開始日</label> <input type="date"
+					name="startDate" max="9999-12-31">
 			</div>
 
-		<button type="submit" class="btn btn-primary">検索</button>
+			<div class="form-group">
+				<label for="endDate">終了日</label> <input type="date"
+					name="endDate" max="9999-12-31">
+			</div>
+
+			<div class="form-group">
+				<label for="place"></label>開催場所<input class="form-control"
+					type="text" name="place" id="place">
+			</div>
+
+			<div class="form-group">
+				<label for="participant">参加対象</label> <input class="form-control"
+					type="text" name="participant" id="participant">
+			</div>
+
+			<button type="submit" class="btn btn-primary">登録</button>
 	</div>
 </body>
 </html>

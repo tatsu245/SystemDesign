@@ -20,12 +20,12 @@
 		<hr>
 		<form action="/tt_match_manager/user" method="post">
 			<div class="form-group">
-				<label for="userName">名前</label> <input class="form-control"
-					type="text" name="userName" id="userName">
-			</div>
-			<div class="form-group">
 				<label for="userId">ユーザーID</label> <input class="form-control"
 					type="text" name="userId" id="userId">
+			</div>
+			<div class="form-group">
+				<label for="userName">名前</label> <input class="form-control"
+					type="text" name="userName" id="userName">
 			</div>
 			<div class="form-group">
 				<div class="form-group">

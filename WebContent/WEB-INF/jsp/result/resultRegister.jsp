@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>resultSerch</title>
+<title>resultRegister</title>
 </head>
 <body>
 <!-- ナビゲーションバー -->
@@ -16,12 +16,17 @@
 	<br>
 	<!-- コンテンツ -->
 	<div class="container">
-		<h2>試合結果検索</h2>
+		<h2>試合結果登録</h2>
 		<hr>
-		<form action="/tt_match_manager/result/search" method="post">
+		<form action="/tt_match_manager/result/register" method="post">
 		<div class="form-group">
-				<label for="playerName">選手名</label> <input class="form-control"
-					type="text" name="playerName" id="playerName">
+				<label for="playerName">選手名</label> <input type="text"
+					name="playerName" id="playerName">
+			</div>
+
+			<div class="form-group">
+				<label for="resultDate">対戦日</label> <input type="date"
+					name="resultDate" max="9999-12-31">
 			</div>
 
 			<div class="form-group">
@@ -30,11 +35,26 @@
 			</div>
 
 			<div class="form-group">
+				<label for="count"></label>ゲームカウント（自分の点数 ー 相手の点数）*半角数字<input class="form-control"
+					type="text" name="count" id="count">
+			</div>
+
+			<div class="form-group">
+				<label for="matchPlace">対戦位置（ex.準決勝）</label> <input class="form-control"
+					type="text" name="matchPlace" id="matchPlace">
+			</div>
+
+			<div class="form-group">
 				<label for="opponentName">対戦相手</label> <input class="form-control"
 					type="text" name="opponentName" id="opponentName">
 			</div>
 
-		<button type="submit" class="btn btn-primary">検索</button>
+			<div class="form-group">
+				<label for="matchForm">試合形式（ex.シングルス）</label> <input class="form-control"
+					type="text" name="matchForm" id="matchForm">
+			</div>
+
+			<button type="submit" class="btn btn-primary">登録</button>
 	</div>
 </body>
 </html>

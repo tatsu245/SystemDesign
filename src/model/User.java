@@ -3,8 +3,9 @@ package model;
 public class User {
 	private String user_id;
 	private String user_name;
-	private String password;
 	private String student_number;
+	private String password;
+
 
 	public String getUser_id() {
 		return user_id;
@@ -22,14 +23,6 @@ public class User {
 		this.user_name = user_name;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getStudent_number() {
 		return student_number;
 	}
@@ -38,7 +31,16 @@ public class User {
 		this.student_number = student_number;
 	}
 
-	public User(String user_id, String user_name, String password, String student_number) {
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public User(String user_id, String user_name, String student_number, String password) {
 	}
 
 	public User() {
