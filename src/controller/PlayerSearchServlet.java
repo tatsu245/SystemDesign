@@ -8,39 +8,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Result;
-import service.ResultSearchService;
+import model.Player;
+import service.PlayerSearchService;
 
-@WebServlet("/result/search")
-public class ResultSearchServlet extends HttpServlet {
+@WebServlet("/player/search")
+public class PlayerSearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public ResultSearchServlet() {
+    public PlayerSearchServlet() {
         super();
     }
-//戦績検索画面の表示
+//選手検索画面の表示
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result/resultSearch.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/player/playerSearch.jsp");
 		dispatcher.forward(request, response);
 	}
 
-//戦績検索の処理を実行
+//選手検索の処理を実行
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String playerName= request.getParameter("playerName");
-		String tournamentName = request.getParameter("tournamentName");
-		String opponentName = request.getParameter("opponentName");
 
-		
-		ResultSearchService resultSearchService = new ResultSearchService();
-		Result result = resultSearchService.authenticate(playerName, tournamentName, opponentName);
+		PlayerSearchService playerSearchService = new PlayerSearchService();
+		Player player = playerSearchService.authenticate(playerName);
 
-		if(result==null) {
-			request.setAttribute("ERROR","戦績が登録されていません");
+		if(player==null) {
+			request.setAttribute("ERROR","選手が登録されていません");
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/menu.jsp").forward(request, response);
 		}else {
-			request.setAttribute("result", result);
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/result/resultShow.jsp").forward(request, response);
+			request.setAttribute("player", player);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/player/playerShow.jsp").forward(request, response);
 
 			/*HttpSession session = request.getSession();
 			session.setAttribute("user", user);

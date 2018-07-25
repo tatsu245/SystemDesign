@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Player;
@@ -9,31 +10,32 @@ import utility.DriverAccsessor;
 
 public class PlayerDao extends DriverAccsessor{
 
-	/*public User findOne(String userId,Connection connection) {
+	public Player findOne(String playerName,Connection connection) {
 		try {
-			String sql = "select * from User where user_id = ?";
+			String sql = "select * from Player where player_name = ?";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, userId);
+			statement.setString(1, playerName);
 
 			ResultSet rSet = statement.executeQuery();
 			rSet.first();
 
-			User user = new User();
-			user.setUser_id(rSet.getString("user_id"));
-			user.setUser_name(rSet.getString("user_name"));
-			user.setStudent_number(rSet.getString("student_number"));
-			user.setPassword(rSet.getString("password"));
+			Player player = new Player();
+			player.setPlayer_name(rSet.getString("player_name"));
+			player.setDate(rSet.getString("birthday"));
+			player.setTall(rSet.getString("tall"));
+			player.setWeight(rSet.getString("weight"));
+			player.setTeam(rSet.getString("team"));
 
 			statement.close();
 			rSet.close();
 
-			return user;
+			return player;
 		}catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
-	}*/
+	}
 
 	public void create(Player player,Connection connection) {
 		try {

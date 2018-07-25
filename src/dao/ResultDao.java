@@ -12,7 +12,7 @@ public class ResultDao extends DriverAccsessor{
 
 	public Result findOne(String playerName,String tournamentName,String opponentName,Connection connection) {
 		try {
-			String sql = "select * from Result where player_name and tournament_name and opponentName= ?";
+			String sql = "select * from Result where player_name = ? and tournament_name = ? and opponent_Name = ?";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, playerName);
@@ -25,8 +25,12 @@ public class ResultDao extends DriverAccsessor{
 			Result result = new Result();
 			result.setResult_id(rSet.getInt("result_id"));
 			result.setPlayer_name(rSet.getString("player_name"));
+			result.setResult_date(rSet.getString("result_date"));
 			result.setTournament_name(rSet.getString("tournament_name"));
+			result.setCount(rSet.getString("count"));
+			result.setMatch_place(rSet.getString("match_place"));
 			result.setOpponent_name(rSet.getString("opponent_name"));
+			result.setMatch_form(rSet.getString("match_form"));
 
 			statement.close();
 			rSet.close();

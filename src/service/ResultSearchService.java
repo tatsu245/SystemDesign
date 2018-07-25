@@ -3,7 +3,7 @@ package service;
 import java.sql.Connection;
 
 import dao.ResultDao;
-import model.Result;;
+import model.Result;
 
 public class ResultSearchService {
 
