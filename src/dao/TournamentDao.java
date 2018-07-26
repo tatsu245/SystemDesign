@@ -108,10 +108,10 @@ public class TournamentDao extends DriverAccsessor{
 
 	public List<model.Relation> findAllRelation(int tournamentId, Connection connection) {
 		try {
-			String sql = "\"select * from Tournament innner join Result on Tournament.tournament_name = Result.tournament_name "
-					+ "inner join Player on Result.player_name = Player.player_name where tournament_id = ?";
+			String sql = "select * from Tournament inner join Result on Tournament.tournament_name = Result.tournament_name inner join Player on Result.player_name = Player.player_name where tournament_id = ?";
 
 			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, tournamentId);
 			ResultSet resultSet = statement.executeQuery();
 			List<model.Relation> relationList = new ArrayList<model.Relation>();
 

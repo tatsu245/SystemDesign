@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- CSS -->
+<link rel="stylesheet" href="/tt_match_manager/css/bootstrap.min.css">
+<link  rel="stylesheet" href="/tt_match_manager/font/css/open-iconic-bootstrap.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TopPage</title>
 </head>
@@ -19,6 +22,8 @@
 	<br>
 	<a href="/tt_match_manager/login" class="btn btn-primary" >Get Start</a>
 </div>
-
+<!-- javascript -->
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/tt_match_manager/js/bootstrap.min.js"></script>
 </body>
 </html>

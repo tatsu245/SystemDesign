@@ -31,13 +31,14 @@ public class ResultSearchServlet extends HttpServlet {
 		String tournamentName = request.getParameter("tournamentName");
 		String opponentName = request.getParameter("opponentName");
 
-		
+
 		ResultSearchService resultSearchService = new ResultSearchService();
 		Result result = resultSearchService.authenticate(playerName, tournamentName, opponentName);
 
 		if(result==null) {
-			request.setAttribute("ERROR","戦績が登録されていません");
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/menu.jsp").forward(request, response);
+			String errorMessage = "戦績が登録されていません";
+			request.setAttribute("ERROR",errorMessage);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/notRegister.jsp").forward(request, response);
 		}else {
 			request.setAttribute("result", result);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/result/resultShow.jsp").forward(request, response);

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="model.Tournament"%>
 <%@ page import="java.util.List"%>
@@ -11,11 +11,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- CSS -->
+<link rel="stylesheet" href="/tt_match_manager/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/tt_match_manager/font/css/open-iconic-bootstrap.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>tournamentShow</title>
 </head>
 <body>
-<!-- ナビゲーションバー -->
+	<!-- ナビゲーションバー -->
 	<nav class="navbar navbar-dark bg-dark"> <a class="navbar-brand"
 		href="/tt_match_manager/">tt_match_manager</a>
 	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -51,18 +55,21 @@
 
 				<td><%=tournament.getTournament_id()%></td>
 
-				<td><a href="/tt_match_manager/tournament/show?id=<%=tournament.getTournament_id()%>" class="btn btn-primary">
-				<%=tournament.getTournament_name()%></a></td>
+				<!-- <td><a href="/tt_match_manager/tournament/show?id=<%=tournament.getTournament_id()%>" class="btn btn-primary">
+				<%=tournament.getTournament_name()%></a></td> -->
 
 				<!-- <form action="/tt_match_manager/tournament/show" method="post">
 				<td><%=tournament.getTournament_name()%></a>
 				<button class="btn btn-primary" type="submit">ログイン</button>
-				</form>
-
-				<form method="post" name="tournamentName" action="/tt_match_manager/tournament/show">
-				<input type="hidden" name="tournamentName" value="大会名">
-				<a href=""><%=tournament.getTournament_name()%></a>
 				</form> -->
+
+				<td><form
+						action="/tt_match_manager/tournament/show?id=<%=tournament.getTournament_id()%>"
+						method="post">
+						<div class="form-group">
+							<button class="btn btn-primary" type="submit"><%=tournament.getTournament_name()%></button>
+						</div>
+					</form></td>
 
 				<td><%=tournament.getStart_date()%></td>
 				<td><%=tournament.getEnd_date()%></td>
@@ -84,6 +91,9 @@
 			}
 		%>
 	</div>
-
+	<!-- javascript -->
+	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"
+		src="/tt_match_manager/js/bootstrap.min.js"></script>
 </body>
 </html>

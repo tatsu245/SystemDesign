@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 		User user = loginService.authenticate(userId, password);
 		if(user==null) {
 			request.setAttribute("ERROR", "IDまたはパスワードが違います");
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/notRegister.jsp").forward(request, response);
 		}else {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);

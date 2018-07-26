@@ -34,7 +34,7 @@ public class PlayerSearchServlet extends HttpServlet {
 
 		if(player==null) {
 			request.setAttribute("ERROR","選手が登録されていません");
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/menu.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/notRegister.jsp").forward(request, response);
 		}else {
 			request.setAttribute("player", player);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/player/playerShow.jsp").forward(request, response);

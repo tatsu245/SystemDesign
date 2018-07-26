@@ -42,13 +42,14 @@ public class TournamentShowServlet extends HttpServlet {
 		//Tournament tournament = tournamentService.getTournament(request.getParameter("id"));
 		//tournamentService.createPlayerTournamentRelation(tournament);
 
-		int id = Integer.parseInt(request.getParameter("id"));
+		String Id = request.getParameter("id");
+		int id = Integer.parseInt(Id);
 
 		List<model.Relation> relation = tournamentService.getRelation(id);
 
 		request.setAttribute("relation", relation);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/tournament/participantsListShow.jsp?id=id");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/tournament/participantsListShow.jsp");
 		dispatcher.forward(request, response);
 	}
 
