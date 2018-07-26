@@ -12,7 +12,7 @@
 		href="/tt_match_manager/">tt_match_manager</a>
 	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	</ul>
-	<a class="btn btn-warning" href="/tt_match_manager/logout">logout</a> </nav>
+	<a class="btn btn-warning" href="/WEB-INF/jsp/logout.jsp">logout</a> </nav>
 	<br>
 	<!-- コンテンツ -->
 	<div class="container">

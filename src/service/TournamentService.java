@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import dao.TournamentDao;
+import model.Relation;
 import model.Tournament;
 
 public class TournamentService {
@@ -39,4 +40,28 @@ public class TournamentService {
 		return tournament;
 	}
 
+	public Tournament getTournament(String tournamentName) {
+		TournamentDao dao = new TournamentDao();
+		this.connection = dao.createConnection();
+		Tournament tournament = new Tournament();
+		tournament = dao.findOne(tournamentName, connection);
+		this.connection = null;
+		return tournament;
+	}
+
+	/*public void createPlayerTournamentRelation(Tournament tournament) {
+		TournamentDao dao = new TournamentDao();
+		this.connection = dao.createConnection();
+		dao.createRelation(tournament, connection);
+		dao.closeConnection(connection);
+		this.connection = null;
+	}*/
+
+	public List<Relation> getRelation(int tournamentId) {
+		TournamentDao dao = new TournamentDao();
+		this.connection = dao.createConnection();
+		List<Relation> relation = dao.findAllRelation(tournamentId,connection);
+		this.connection = null;
+		return relation;
+	}
 }

@@ -10,33 +10,9 @@ import java.util.List;
 import model.Tournament;
 import utility.DriverAccsessor;
 
-public class TournamentDao extends DriverAccsessor{
+public class RelationDao extends DriverAccsessor{
 
-	/*public User findOne(String userId,Connection connection) {
-		try {
-			String sql = "select * from User where user_id = ?";
 
-			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, userId);
-
-			ResultSet rSet = statement.executeQuery();
-			rSet.first();
-
-			User user = new User();
-			user.setUser_id(rSet.getString("user_id"));
-			user.setUser_name(rSet.getString("user_name"));
-			user.setStudent_number(rSet.getString("student_number"));
-			user.setPassword(rSet.getString("password"));
-
-			statement.close();
-			rSet.close();
-
-			return user;
-		}catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}*/
 
 	public void create(Tournament tournament,Connection connection) {
 		try {
@@ -76,37 +52,8 @@ public class TournamentDao extends DriverAccsessor{
 		}
 	}*/
 
-	public List<Tournament> findAll(Connection connection) {
-		try {
-			String sql = "select * from Tournament";
 
-			PreparedStatement statement = connection.prepareStatement(sql);
-			ResultSet resultSet = statement.executeQuery();
-			List<Tournament> tournamentList = new ArrayList<Tournament>();
-
-			while(resultSet.next()) {
-				Tournament tournament = new Tournament();
-				tournament.setTournament_id(resultSet.getInt("tournament_id"));
-				tournament.setTournament_name(resultSet.getString("tournament_name"));
-				tournament.setStart_date(resultSet.getString("start_date"));
-				tournament.setEnd_date(resultSet.getString("end_date"));
-				tournament.setPlace(resultSet.getString("place"));
-				tournament.setUser_id(resultSet.getString("user_id"));
-				tournament.setParticipant(resultSet.getString("participant"));
-
-				tournamentList.add(tournament);
-			}
-			statement.close();
-			resultSet.close();
-
-			return tournamentList;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	public List<model.Relation> findAllRelation(int tournamentId, Connection connection) {
+	public List<model.Relation> findAllRelation(Connection connection) {
 		try {
 			String sql = "\"select * from Tournament innner join Result on Tournament.tournament_name = Result.tournament_name "
 					+ "inner join Player on Result.player_name = Player.player_name where tournament_id = ?";

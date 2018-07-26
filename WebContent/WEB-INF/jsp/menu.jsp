@@ -30,6 +30,8 @@
 		<br>
 		<a href="/tt_match_manager/player/search" class="btn btn-primary">選手検索</a>
 		<br>
+		<a href="/tt_match_manager/tournament/show" class="btn btn-primary">大会一覧</a>
+		<br>
 	</div>
 </body>
 </html>

@@ -13,22 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 import model.Tournament;
 import service.TournamentService;
 
-@WebServlet("/tournament/playerTournamentRelation")
-public class PlayerTournamentRelationServlet extends HttpServlet {
+@WebServlet("/tournament/playerTournamentRelationRegister")
+public class PlayerTournamentRelationRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public PlayerTournamentRelationServlet() {
+    public PlayerTournamentRelationRegister() {
         super();
     }
 
-//選手が出場した大会の登録画面の表示
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+//選手が出場した大会を登録
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TournamentService tournamentService = new TournamentService();
 		List<Tournament> tournament = tournamentService.getTournament();
-
 		request.setAttribute("tournament", tournament);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/tournament/playerTournamentRelation.jsp");
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/tournament/playerTournamentRelationRegister.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page import="model.Tournament"%>
 <%@ page import="java.util.List"%>
@@ -12,10 +12,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>playerTournamentRelation</title>
+<title>tournamentShow</title>
 </head>
 <body>
-	<!-- ナビゲーションバー -->
+<!-- ナビゲーションバー -->
 	<nav class="navbar navbar-dark bg-dark"> <a class="navbar-brand"
 		href="/tt_match_manager/">tt_match_manager</a>
 	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -32,8 +32,7 @@
 		<h2 class="page-header">
 			登録済み大会:<%=tournamentList.size()%>件
 		</h2>
-		<h5>出場した大会を選択してください</h5>
-		<hr>
+
 		<%
 			for (Tournament tournament : tournamentList) {
 		%>
@@ -52,8 +51,19 @@
 
 				<td><%=tournament.getTournament_id()%></td>
 
-				<td><a href="/tt_match_manager/tournament/playerTournamentRelationRegister" class="btn btn-primary">
+				<td><a href="/tt_match_manager/tournament/show?id=<%=tournament.getTournament_id()%>" class="btn btn-primary">
 				<%=tournament.getTournament_name()%></a></td>
+
+				<!-- <form action="/tt_match_manager/tournament/show" method="post">
+				<td><%=tournament.getTournament_name()%></a>
+				<button class="btn btn-primary" type="submit">ログイン</button>
+				</form>
+
+				<form method="post" name="tournamentName" action="/tt_match_manager/tournament/show">
+				<input type="hidden" name="tournamentName" value="大会名">
+				<a href=""><%=tournament.getTournament_name()%></a>
+				</form> -->
+
 				<td><%=tournament.getStart_date()%></td>
 				<td><%=tournament.getEnd_date()%></td>
 				<td><%=tournament.getPlace()%></td>
@@ -74,5 +84,6 @@
 			}
 		%>
 	</div>
+
 </body>
 </html>
